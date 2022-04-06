@@ -1,0 +1,25 @@
+(1) rootユーザーでログインして、次のユーザーを作成してください。
+
+ユーザー名: st_user
+パスワード: 1234
+使用するデータベース: student
+
+(2) student_user ユーザーでログインして、以下のテーブルを作成してください。
+
+テーブル名: person
+テーブル構造
+  プライマリ・キー id       int型       auto_increment
+  名前            name     varchar(20) not null
+  性別            gender   char(1)     not null
+  誕生日          birthday date型      not null
+  出身            state    varchar(10) not null
+  コース          c_id     int
+
+
+テーブル名: course
+テーブル構造
+  プライマリ・キー id     int型       auto_increment
+  コース名         name   varchar(20) not null
+  
+
+;; 修正時刻: Wed 2022/04/06 17:46:28
