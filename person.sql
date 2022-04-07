@@ -2,7 +2,7 @@
 -- user: sampleuser
 -- password: 1234
 
--- ============ genderè¡¨ ========================
+-- ============ gender•\ ========================
 DROP TABLE IF EXISTS gender;
 
 CREATE TABLE gender (
@@ -11,12 +11,12 @@ CREATE TABLE gender (
 );
 
 INSERT INTO gender (gid, gname) VALUES
-('0', 'ä¸æ˜'),
-('1', 'ç”·æ€§'),
-('2', 'å¥³æ€§'),
-('3', 'ãã®ä»–');
+('0', '•s–¾'),
+('1', '’j«'),
+('2', '—«'),
+('3', '‚»‚Ì‘¼');
 
--- =============== stateè¡¨ ================
+-- =============== state•\ ================
 DROP TABLE IF EXISTS state;
 
 CREATE TABLE state (
@@ -24,7 +24,7 @@ CREATE TABLE state (
   sname VARCHAR(5)
 );
 
--- =============== courseè¡¨ =============
+-- =============== course•\ =============
 DROP TABLE IF EXISTS course;
 
 CREATE TABLE course (
@@ -33,13 +33,13 @@ CREATE TABLE course (
 );
 
 INSERT INTO course (cname) VALUES
-('HTML/CSSã‚³ãƒ¼ã‚¹'),
-('JavaScriptã‚³ãƒ¼ã‚¹'),
-('PHPã‚³ãƒ¼ã‚¹'),
-('Javaã‚³ãƒ¼ã‚¹'),
-('ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆJSPã‚³ãƒ¼ã‚¹');
+('HTML/CSSƒR[ƒX'),
+('JavaScriptƒR[ƒX'),
+('PHPƒR[ƒX'),
+('JavaƒR[ƒX'),
+('ƒT[ƒuƒŒƒbƒgJSPƒR[ƒX');
 
--- ============ personè¡¨ =================
+-- ============ person•\ =================
 DROP TABLE IF EXISTS person;
 
 CREATE TABLE person (
@@ -52,10 +52,10 @@ CREATE TABLE person (
 );
 
 INSERT INTO person (name, g_id, birthday, s_id, c_id) VALUES
-('æŸ“è°·ç¿”å¤ª', '1', '1992/09/03', '13', 2),
-('äºŒéšå ‚ãµã¿', '2', '1994/09/21', '47', 3),
-('æ¸¡è¾ºå“²', '1', '1950/03/11', '23', 4),
-('çªªå¡šæ´‹ä»‹', '1', '1979/05/07', '14', 1),
-('å‰é«˜ç”±é‡Œå­', '2', '1988/07/22', '13', 4);
+('õ’JãÄ‘¾', '1', '1992/09/03', '13', 2),
+('“ñŠK“°‚Ó‚İ', '2', '1994/09/21', '47', 3),
+('“n•Ó“N', '1', '1950/03/11', '23', 4),
+('ŒE’Ë—m‰î', '1', '1979/05/07', '14', 1),
+('‹g‚—R—¢q', '2', '1988/07/22', '13', 4);
 
 
