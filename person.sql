@@ -59,3 +59,4 @@ INSERT INTO person (name, g_id, birthday, s_id, c_id) VALUES
 ('ãgçÇóRó¢éq', '2', '1988/07/22', '13', 4);
 
 
+SELECT * FROM person;
