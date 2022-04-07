@@ -25,3 +25,15 @@ CREATE TABLE dept (
   id CHAR(3) PRIMARY KEY,
   name VARCHAR(20) NOT NULL
 );
+
+INSERT INTO emp (name, age, birthday, dept_id) VALUES
+('菅原文太', 40, 1933, '001'),
+('千葉真一', 34, 1939, '002'),
+('北大路欣也', 30, 1943, '003'),
+('梶芽衣子', 26, 1947, '002');
+
+INSERT INTO dept VALUES
+('001', '総務部'),
+('002', '営業部'),
+('003', '経理部'),
+('004', '開発部');
