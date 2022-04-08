@@ -1,5 +1,5 @@
--- sampleuser ã‚’ä½œæˆã™ã‚‹
--- rootãƒ¦ãƒ¼ã‚¶ãƒ¼ã§å®Ÿè¡Œ
+-- sampleuser ‚ğì¬‚·‚é
+-- rootƒ†[ƒU[‚ÅÀs
 
 GRANT ALL ON sample.* TO 'sampleuser'@'localhost' IDENTIFIED BY '1234';
 

@@ -1,11 +1,11 @@
--- sampleuser ã§å®Ÿè¡Œã™ã‚‹
+-- sampleuser ‚ÅÀs‚·‚é
 -- mysql -u sampleuser -p
 -- Password: 1234
 
--- ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ä½œæˆ
+-- ƒf[ƒ^ƒx[ƒX‚Ìì¬
 CREATE DATABASE IF NOT EXISTS sample;
 
--- ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®é¸æŠ
+-- ƒf[ƒ^ƒx[ƒX‚Ì‘I‘ğ
 USE sample;
 DROP TABLE IF EXISTS emp;
 DROP TABLE IF EXISTS dept;
@@ -26,14 +26,26 @@ CREATE TABLE dept (
   name VARCHAR(20) NOT NULL
 );
 
+ALTER TABLE emp AUTO_INCREMENT = 1;
+
 INSERT INTO emp (name, age, birthday, dept_id) VALUES
-('è…åŸæ–‡å¤ª', 40, 1933, '001'),
-('åƒè‘‰çœŸä¸€', 34, 1939, '002'),
-('åŒ—å¤§è·¯æ¬£ä¹Ÿ', 30, 1943, '003'),
-('æ¢¶èŠ½è¡£å­', 26, 1947, '002');
+('›Œ´•¶‘¾', 40, 1933, '001'),
+('ç—t^ˆê', 34, 1939, '002'),
+('–k‘å˜H‹Ó–ç', 30, 1943, '003'),
+('Š‰èˆßq', 26, 1947, '002');
 
 INSERT INTO dept VALUES
-('001', 'ç·å‹™éƒ¨'),
-('002', 'å–¶æ¥­éƒ¨'),
-('003', 'çµŒç†éƒ¨'),
-('004', 'é–‹ç™ºéƒ¨');
+('001', '‘–±•”'),
+('002', '‰c‹Æ•”'),
+('003', 'Œo—•”'),
+('004', 'ŠJ”­•”');
+
+SELECT * FROM emp;
+SELECT * FROM dept;
+
+select emp.id as ID, emp.name as –¼‘O, 
+    age as ”N—î, dept.name as •”–¼ 
+  from emp 
+  inner join dept
+    on emp.dept_id = dept.id
+    order by ID;
