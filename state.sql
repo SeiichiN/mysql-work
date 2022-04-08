@@ -1,10 +1,11 @@
 
-/*
+DROP TABLE IF EXISTS state;
+
 CREATE TABLE state (
   sid char(2) PRIMARY KEY,
   sname varchar(5)
-) 
-*/
+); 
+
 
 --
 -- state

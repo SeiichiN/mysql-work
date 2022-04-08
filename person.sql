@@ -16,13 +16,7 @@ INSERT INTO gender (gid, gname) VALUES
 ('2', '女性'),
 ('3', 'その他');
 
--- =============== state表 ================
-DROP TABLE IF EXISTS state;
 
-CREATE TABLE state (
-  sid CHAR(2) PRIMARY KEY,
-  sname VARCHAR(5)
-);
 
 -- =============== course表 =============
 DROP TABLE IF EXISTS course;
@@ -60,3 +54,18 @@ INSERT INTO person (name, g_id, birthday, s_id, c_id) VALUES
 
 
 SELECT * FROM person;
+
+SELECT
+    p.id AS ID,
+    p.name AS 名前,
+    g.gname AS 性別,
+    p.birthday AS 誕生日,
+    s.sname AS 出身,
+    c.cname AS コース
+  FROM person p
+  INNER JOIN gender g
+  ON p.g_id = g.gid
+    INNER JOIN state s
+    ON p.s_id = s.sid
+      INNER JOIN course c
+      ON p.c_id = c.cid;
