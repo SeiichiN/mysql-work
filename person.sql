@@ -2,6 +2,9 @@
 -- user: sampleuser
 -- password: 1234
 
+USE sample;
+-- このsqlを実行する前に、state.sqlを読み込むこと。
+
 -- ============ gender表 ========================
 DROP TABLE IF EXISTS gender;
 
@@ -55,11 +58,14 @@ INSERT INTO person (name, g_id, birthday, s_id, c_id) VALUES
 
 SELECT * FROM person;
 
+DROP VIEW IF EXISTS person_v;
+
+CREATE VIEW person_v AS
 SELECT
     p.id AS ID,
     p.name AS 名前,
     g.gname AS 性別,
-    p.birthday AS 誕生日,
+    timestampdiff(YEAR, p.birthday, curdate()) as 年齢,
     s.sname AS 出身,
     c.cname AS コース
   FROM person p
@@ -69,3 +75,5 @@ SELECT
     ON p.s_id = s.sid
       INNER JOIN course c
       ON p.c_id = c.cid;
+
+SELECT * FROM person_v;
