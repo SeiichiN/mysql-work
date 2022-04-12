@@ -101,21 +101,6 @@ INSERT INTO `emp` VALUES (1,'ËèÖÂéüÊñáÂ§™',40,1933,'001'),(2,'ÂçÉËëâÁúü‰∏Ä',34,1
 UNLOCK TABLES;
 
 --
--- Temporary table structure for view `emp_v`
---
-
-DROP TABLE IF EXISTS `emp_v`;
-/*!50001 DROP VIEW IF EXISTS `emp_v`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE VIEW `emp_v` AS SELECT 
- 1 AS `ID`,
- 1 AS `ÂêçÂâç`,
- 1 AS `Âπ¥ÈΩ¢`,
- 1 AS `ÈÉ®ÁΩ≤Âêç`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Table structure for table `gender`
 --
 
@@ -168,23 +153,6 @@ INSERT INTO `person` VALUES (1,'ÊüìË∞∑ÁøîÂ§™','1','1992-09-03','13',2),(2,'‰∫åÈö
 UNLOCK TABLES;
 
 --
--- Temporary table structure for view `person_v`
---
-
-DROP TABLE IF EXISTS `person_v`;
-/*!50001 DROP VIEW IF EXISTS `person_v`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE VIEW `person_v` AS SELECT 
- 1 AS `ID`,
- 1 AS `ÂêçÂâç`,
- 1 AS `ÊÄßÂà•`,
- 1 AS `Âπ¥ÈΩ¢`,
- 1 AS `Âá∫Ë∫´`,
- 1 AS `„Ç≥„Éº„Çπ`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Table structure for table `state`
 --
 
@@ -234,48 +202,6 @@ LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Current Database: `sample`
---
-
-USE `sample`;
-
---
--- Final view structure for view `emp_v`
---
-
-/*!50001 DROP VIEW IF EXISTS `emp_v`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = cp932 */;
-/*!50001 SET character_set_results     = cp932 */;
-/*!50001 SET collation_connection      = cp932_japanese_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`sampleuser`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `emp_v` AS select `e`.`id` AS `ID`,`e`.`name` AS `ñºëO`,`e`.`age` AS `îNóÓ`,`d`.`name` AS `ïîèêñº` from (`emp` `e` join `dept` `d` on((`e`.`dept_id` = `d`.`id`))) order by `e`.`id` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `person_v`
---
-
-/*!50001 DROP VIEW IF EXISTS `person_v`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = cp932 */;
-/*!50001 SET character_set_results     = cp932 */;
-/*!50001 SET collation_connection      = cp932_japanese_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`sampleuser`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `person_v` AS select `p`.`id` AS `ID`,`p`.`name` AS `ñºëO`,`g`.`gname` AS `ê´ï `,timestampdiff(YEAR,`p`.`birthday`,curdate()) AS `îNóÓ`,`s`.`sname` AS `èoêg`,`c`.`cname` AS `ÉRÅ[ÉX` from (((`person` `p` join `gender` `g` on((`p`.`g_id` = `g`.`gid`))) join `state` `s` on((`p`.`s_id` = `s`.`sid`))) join `course` `c` on((`p`.`c_id` = `c`.`cid`))) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -286,4 +212,4 @@ USE `sample`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-11 16:12:56
+-- Dump completed on 2022-04-12 10:22:30

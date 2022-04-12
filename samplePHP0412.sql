@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: localhost:3306
--- 生成日時: 2022-04-11 16:20:50
+-- 生成日時: 2022-04-12 11:10:30
 -- サーバのバージョン： 5.7.24
 -- PHP のバージョン: 7.4.16
 
@@ -43,7 +43,12 @@ INSERT INTO `course` (`cid`, `cname`) VALUES
 (2, 'JavaScriptコース'),
 (3, 'PHPコース'),
 (4, 'Javaコース'),
-(5, 'サーブレットJSPコース');
+(5, 'サーブレットJSPコース'),
+(6, 'HTML/CSSコース'),
+(7, 'JavaScriptコース'),
+(8, 'PHPコース'),
+(9, 'Javaコース'),
+(10, 'サーブレットJSPコース');
 
 -- --------------------------------------------------------
 
@@ -249,7 +254,7 @@ CREATE TABLE `student` (
 --
 DROP TABLE IF EXISTS `emp_v`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`sampleuser`@`localhost` SQL SECURITY DEFINER VIEW `emp_v`  AS SELECT `e`.`id` AS `ID`, `e`.`name` AS `名前`, `e`.`age` AS `年齢`, `d`.`name` AS `部署名` FROM (`emp` `e` join `dept` `d` on((`e`.`dept_id` = `d`.`id`))) ORDER BY `e`.`id` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`sampleuser`@`localhost` SQL SECURITY DEFINER VIEW `emp_v`  AS SELECT `emp`.`id` AS `ID`, `emp`.`name` AS `名前`, `emp`.`age` AS `年齢`, `dept`.`name` AS `部署名` FROM (`emp` join `dept` on((`emp`.`dept_id` = `dept`.`id`))) ORDER BY `emp`.`id` ASC ;
 
 -- --------------------------------------------------------
 
@@ -316,7 +321,7 @@ ALTER TABLE `student`
 -- テーブルの AUTO_INCREMENT `course`
 --
 ALTER TABLE `course`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- テーブルの AUTO_INCREMENT `emp`

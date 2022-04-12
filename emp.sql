@@ -46,6 +46,7 @@ INSERT INTO emp (name, age, birthday, dept_id) VALUES
 SELECT * FROM emp;
 SELECT * FROM dept;
 
+create view emp_v as
 select emp.id as ID, emp.name as –¼‘O, 
     age as ”N—î, dept.name as •”–¼ 
   from emp 
