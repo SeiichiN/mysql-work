@@ -3,9 +3,7 @@
 -- password: 1234
 
 USE sample;
--- ‚±‚Ìsql‚ğÀs‚·‚é‘O‚ÉAstate.sql‚ğ“Ç‚İ‚Ş‚±‚ÆB
 
--- ============ gender•\ ========================
 DROP TABLE IF EXISTS gender;
 
 CREATE TABLE gender (
@@ -14,14 +12,13 @@ CREATE TABLE gender (
 );
 
 INSERT INTO gender (gid, gname) VALUES
-('0', '•s–¾'),
-('1', '’j«'),
-('2', '—«'),
-('3', '‚»‚Ì‘¼');
+('0', 'ä¸æ˜'),
+('1', 'ç”·æ€§'),
+('2', 'å¥³æ€§'),
+('3', 'ãã®ä»–');
 
 
-
--- =============== course•\ =============
+-- =============== courseè¡¨ =============
 DROP TABLE IF EXISTS course;
 
 CREATE TABLE course (
@@ -30,13 +27,13 @@ CREATE TABLE course (
 );
 
 INSERT INTO course (cname) VALUES
-('HTML/CSSƒR[ƒX'),
-('JavaScriptƒR[ƒX'),
-('PHPƒR[ƒX'),
-('JavaƒR[ƒX'),
-('ƒT[ƒuƒŒƒbƒgJSPƒR[ƒX');
+('HTML/CSSã‚³ãƒ¼ã‚¹'),
+('JavaScriptã‚³ãƒ¼ã‚¹'),
+('PHPã‚³ãƒ¼ã‚¹'),
+('Javaã‚³ãƒ¼ã‚¹'),
+('ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆJSPã‚³ãƒ¼ã‚¹');
 
--- ============ person•\ =================
+-- ============ personè¡¨ =================
 DROP TABLE IF EXISTS person;
 
 CREATE TABLE person (
@@ -49,11 +46,11 @@ CREATE TABLE person (
 );
 
 INSERT INTO person (name, g_id, birthday, s_id, c_id) VALUES
-('õ’JãÄ‘¾', '1', '1992/09/03', '13', 2),
-('“ñŠK“°‚Ó‚İ', '2', '1994/09/21', '47', 3),
-('“n•Ó“N', '1', '1950/03/11', '23', 4),
-('ŒE’Ë—m‰î', '1', '1979/05/07', '14', 1),
-('‹g‚—R—¢q', '2', '1988/07/22', '13', 4);
+('æŸ“è°·ç¿”å¤ª', '1', '1992/09/03', '13', 2),
+('äºŒéšå ‚ãµã¿', '2', '1994/09/21', '47', 3),
+('æ¸¡è¾ºå“²', '1', '1950/03/11', '23', 4),
+('çªªå¡šæ´‹ä»‹', '1', '1979/05/07', '14', 1),
+('å‰é«˜ç”±é‡Œå­', '2', '1988/07/22', '13', 4);
 
 
 SELECT * FROM person;
@@ -63,11 +60,11 @@ DROP VIEW IF EXISTS person_v;
 CREATE VIEW person_v AS
 SELECT
     p.id AS ID,
-    p.name AS –¼‘O,
-    g.gname AS «•Ê,
-    timestampdiff(YEAR, p.birthday, curdate()) as ”N—î,
-    s.sname AS og,
-    c.cname AS ƒR[ƒX
+    p.name AS åå‰,
+    g.gname AS æ€§åˆ¥,
+    timestampdiff(YEAR, p.birthday, curdate()) as å¹´é½¢,
+    s.sname AS å‡ºèº«,
+    c.cname AS ã‚³ãƒ¼ã‚¹
   FROM person p
   INNER JOIN gender g
   ON p.g_id = g.gid
