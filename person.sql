@@ -11,11 +11,13 @@ CREATE TABLE gender (
   gname VARCHAR(3)
 );
 
-INSERT INTO gender (gid, gname) VALUES
-('0', '不明'),
-('1', '男性'),
-('2', '女性'),
-('3', 'その他');
+INSERT INTO gender
+  (gid, gname)
+VALUES
+  ('0', '不明'),
+  ('1', '男性'),
+  ('2', '女性'),
+  ('3', 'その他');
 
 
 -- =============== course表 =============
@@ -26,12 +28,14 @@ CREATE TABLE course (
   cname VARCHAR(50)
 );
 
-INSERT INTO course (cname) VALUES
-('HTML/CSSコース'),
-('JavaScriptコース'),
-('PHPコース'),
-('Javaコース'),
-('サーブレットJSPコース');
+INSERT INTO course
+  (cname)
+VALUES
+  ('HTML/CSSコース'),
+  ('JavaScriptコース'),
+  ('PHPコース'),
+  ('Javaコース'),
+  ('サーブレットJSPコース');
 
 -- ============ person表 =================
 DROP TABLE IF EXISTS person;
@@ -45,19 +49,22 @@ CREATE TABLE person (
   c_id INT
 );
 
-INSERT INTO person (name, g_id, birthday, s_id, c_id) VALUES
-('染谷翔太', '1', '1992/09/03', '13', 2),
-('二階堂ふみ', '2', '1994/09/21', '47', 3),
-('渡辺哲', '1', '1950/03/11', '23', 4),
-('窪塚洋介', '1', '1979/05/07', '14', 1),
-('吉高由里子', '2', '1988/07/22', '13', 4);
+INSERT INTO person
+  (name, g_id, birthday, s_id, c_id)
+VALUES
+  ('染谷翔太', '1', '1992/09/03', '13', 2),
+  ('二階堂ふみ', '2', '1994/09/21', '47', 3),
+  ('渡辺哲', '1', '1950/03/11', '23', 4),
+  ('窪塚洋介', '1', '1979/05/07', '14', 1),
+  ('吉高由里子', '2', '1988/07/22', '13', 4);
 
 
 SELECT * FROM person;
 
 DROP VIEW IF EXISTS person_v;
 
-CREATE VIEW person_v AS
+CREATE VIEW person_v
+  AS
 SELECT
     p.id AS ID,
     p.name AS 名前,
