@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS dept;
 -- table create 'dept'
 CREATE TABLE dept (
   id CHAR(3) PRIMARY KEY,
-    name VARCHAR(20) NOT NULL
+  name VARCHAR(20) NOT NULL
 );
 
 -- table create 'emp'
@@ -23,10 +23,15 @@ CREATE TABLE emp (
   age INT NOT NULL,
   birthday YEAR NOT NULL,
   dept_id CHAR(3),
-  PRIMARY KEY (id),
-  CONSTRAINT fk_dept_id
-  FOREIGN KEY (dept_id) REFERENCES dept (id)
+    PRIMARY KEY (id),
+    CONSTRAINT fk_dept_id
+      FOREIGN KEY (dept_id)
+      REFERENCES dept (id)
+      ON DELETE RESTRICT
+      ON UPDATE RESTRICT
 );
+
+ALTER TABLE emp AUTO_INCREMENT = 1;
 
 INSERT INTO dept
 VALUES
@@ -35,7 +40,6 @@ VALUES
   ('003', '経理部'),
   ('004', '開発部');
 
-ALTER TABLE emp AUTO_INCREMENT = 1;
 
 INSERT INTO emp
   (name, age, birthday, dept_id)
@@ -60,3 +64,5 @@ from emp
 inner join dept
   on emp.dept_id = dept.id
 order by ID;
+
+## 修正時刻: Thu 2022/10/06 06:01:52

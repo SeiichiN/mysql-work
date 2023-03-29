@@ -1,11 +1,11 @@
--- sampleuser ‚ÅÀs‚·‚é
+-- sampleuser ã§å®Ÿè¡Œã™ã‚‹
 -- mysql -u sampleuser -p
 -- Password: 1234
 
--- ƒf[ƒ^ƒx[ƒX‚Ìì¬
+-- ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ä½œæˆ
 CREATE DATABASE IF NOT EXISTS sample;
 
--- ƒf[ƒ^ƒx[ƒX‚Ì‘I‘ğ
+-- ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®é¸æŠ
 USE sample;
 DROP TABLE IF EXISTS emp;
 DROP TABLE IF EXISTS dept;
@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS dept;
 -- table create 'dept'
 CREATE TABLE dept (
   id CHAR(3) PRIMARY KEY,
-    name VARCHAR(20) NOT NULL
+  name VARCHAR(20) NOT NULL
 );
 
 -- table create 'emp'
@@ -26,37 +26,47 @@ CREATE TABLE emp (
   PRIMARY KEY (id),
   CONSTRAINT fk_dept_id
   FOREIGN KEY (dept_id) REFERENCES dept (id)
+  ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 INSERT INTO dept
 VALUES
-  ('001', '‘–±•”'),
-  ('002', '‰c‹Æ•”'),
-  ('003', 'Œo—•”'),
-  ('004', 'ŠJ”­•”');
+  ('001', 'ç·å‹™éƒ¨'),
+  ('002', 'å–¶æ¥­éƒ¨'),
+  ('003', 'çµŒç†éƒ¨'),
+  ('004', 'é–‹ç™ºéƒ¨'),
+  ('005', 'äººäº‹éƒ¨'),
+  ('006', 'æƒ…å ±ã‚·ã‚¹ãƒ†ãƒ éƒ¨');
+  
 
-ALTER TABLE emp AUTO_INCREMENT = 1;
+-- ALTER TABLE emp AUTO_INCREMENT = 1;
 
 INSERT INTO emp
   (name, age, birthday, dept_id)
 VALUES
-  ('›Œ´•¶‘¾', 40, 1933, '001'),
-  ('ç—t^ˆê', 34, 1939, '002'),
-  ('–k‘å˜H‹Ó–ç', 30, 1943, '003'),
-  ('Š‰èˆßq', 26, 1947, '002');
+  ('è…åŸæ–‡å¤ª', 40, 1933, '001'),
+  ('åƒè‘‰çœŸä¸€', 34, 1939, '002'),
+  ('åŒ—å¤§è·¯æ¬£ä¹Ÿ', 30, 1943, '003'),
+  ('æ¢¶èŠ½è¡£å­', 26, 1947, '002');
 
 
 SELECT * FROM emp;
 SELECT * FROM dept;
 
-create view emp_v
-  as
-select
-  emp.id as ID,
-  emp.name as –¼‘O, 
-  age as ”N—î,
-  dept.name as •”–¼ 
-from emp 
-inner join dept
-  on emp.dept_id = dept.id
-order by ID;
+DROP VIEW IF EXISTS emp_v;
+
+CREATE VIEW emp_v
+  AS
+SELECT
+  emp.id AS ID,
+  emp.name AS åå‰, 
+  age AS å¹´é½¢,
+  dept.name AS éƒ¨ç½²å 
+FROM emp 
+INNER JOIN dept
+  ON emp.dept_id = dept.id
+ORDER BY ID;
+
+SELECT * FROM emp_v;
+
+-- ä¿®æ­£æ™‚åˆ»: Wed 2023/03/29 05:51:52
