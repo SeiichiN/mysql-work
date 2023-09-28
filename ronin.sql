@@ -1,33 +1,26 @@
--- ronin.sql
--- æ˜ ç”»ã€æµªäººè¡—ã€
 
-CREATE DATABASE IF NOT EXISTS ronin\g
+-- ƒf[ƒ^ƒx[ƒX‚Ì–¼‘O
+create database if not exists ronin;
+use ronin;
 
-USE ronin\g
+drop table if exists cast;
 
-source state_utf8.sql
+-- ƒe[ƒuƒ‹‚Ì–¼‘OE’è‹`
+create table cast (
+  id int primary key auto_increment,
+  name varchar(20),
+  gender char(1),
+  birthday date,
+  state varchar(10),
+  office varchar(20)
+);
 
-DROP TABLE IF EXISTS cast\g
-
-CREATE TABLE cast (
-  id INT,
-  name VARCHAR(20),
-  gender CHAR(1),
-  birthday DATE,
-  s_id CHAR(2),
-  affil VARCHAR(20)
-)\g
-
-INSERT INTO cast
-VALUES
-(1, 'å‹æ–°å¤ªéƒ', 'm', '1931-11-29', '12', 'å‹ãƒ—ãƒ­'),
-(2, 'æ¨‹å£å¯å¥ˆå­', 'f', '1958-12-13', '15', 'ãƒ¦ãƒãƒ‹ãƒ†'),
-(3, 'çŸ³æ©‹è“®å¸', 'm', '1941-08-09', '13', 'åŠ‡å›£ç¬¬ä¸ƒç—…æ£Ÿ'),
-(4, 'ç”°ä¸­é‚¦è¡›', 'm', '1932-11-23', '21', 'ä¿³å„ªåº§'), 
-(5, 'æ‰ç”°ã‹ãŠã‚‹', 'f', '1964-11-27', '13', 'ã‚ªãƒ•ã‚£ã‚¹PS'),
-(6, 'ä¸­å°¾å½¬', 'm', '1942-08-11', '12', 'å¤é¤¨ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ')\g
-
-
-
-
--- ä¿®æ­£æ™‚åˆ»: Tue 2022/10/04 18:34:10
+insert into cast 
+  (name, gender, birthday, state, office)
+values
+('ŸV‘¾˜Y',   'm', '1931-11-29', 'ç—tŒ§', 'Ÿƒvƒ'),
+('”óŒû‰Â“Şq', 'f', '1958-12-13', 'VŠƒŒ§', 'ƒ†ƒ}ƒjƒe'),
+('Î‹´˜@i',   'm', '1941-08-09', '“Œ‹“s', 'Œ€’c‘æµ•a“'),
+('“c’†–M‰q',   'm', '1932-11-23', 'Šò•ŒŒ§', '”o—DÀ'),
+('™“c‚©‚¨‚é', 'f', '1964-11-27', '“Œ‹“s', 'ƒIƒtƒBƒXPS'),
+('’†”ö•j',     'm', '1942-08-11', 'ç—tŒ§', 'ŒÃŠÙƒvƒƒWƒFƒNƒg');
