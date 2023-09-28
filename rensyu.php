@@ -19,7 +19,7 @@ function connect() {
 }
 
 function findAll () {
-  $sql = "SELECT * FROM emp WHERE age < 40";
+  $sql = "SELECT * FROM emp";
   
   $pdo = connect();
   try {
@@ -44,4 +44,4 @@ foreach ($data as $row) {
   echo $row['dept'], PHP_EOL;
 }
 
-// 修正時刻: Fri 2023/09/29 06:14:36
+// 修正時刻: Fri 2023/09/29 06:42:38
