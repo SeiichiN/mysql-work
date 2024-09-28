@@ -2,8 +2,8 @@
 DROP TABLE IF EXISTS state;
 
 CREATE TABLE state (
-  sid char(2) PRIMARY KEY,
-  sname varchar(5)
+  id char(2) PRIMARY KEY,
+  name varchar(5)
 ); 
 
 
@@ -11,7 +11,7 @@ CREATE TABLE state (
 -- state
 --
 
-INSERT INTO state (sid, sname) VALUES
+INSERT INTO state (id, name) VALUES
 ('01', '–kŠC“¹'),
 ('02', 'ÂXŒ§'),
 ('03', 'ŠâèŒ§'),
@@ -61,4 +61,4 @@ INSERT INTO state (sid, sname) VALUES
 ('47', '‰«“êŒ§');
 
 
--- C³: Thu 2022/10/06 06:01:522
+-- C³: Sat 2024/09/28 07:32:202
