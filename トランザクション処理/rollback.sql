@@ -1,26 +1,22 @@
---
--- トランザクション処理でデータを挿入する
--- rollback
---
+-- database: book_rental.sql
 
 --
--- database: rensyu
--- table: dept, emp
+-- 金太郎さんが、「わたしとあそんで」を借りた場合
 --
-
-USE rensyu;
 
 BEGIN;
--- start transaction;
 
-INSERT INTO dept VALUES
-('005', '人事部');
+-- 貸出表にデータを入力する
+INSERT INTO rent VALUES
+('C05', '123457', '2024/10/2', '2024/10/17');
 
-INSERT INTO emp
-(name, age, birthyear, dept_id)
-VALUES
-('山下一郎', 34, 1990, '005');
+-- 貸出書籍表に書籍データを入力する
+-- しかし、存在しない書籍データを入力してしまった
+INSERT INTO rent_book VALUES
+('C05', 'bk009');
 
+-- エラーが起きる。
+-- 貸出表への入力を取り消したい
 ROLLBACK;
 
--- 修正時刻: Thu 2024/09/26 09:17:54
+-- 修正時刻: Wed 2024/10/02 05:19:59
