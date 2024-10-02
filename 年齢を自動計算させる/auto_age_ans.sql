@@ -1,3 +1,7 @@
+--
+-- 年齢を自動計算する
+-- database: rensyu2
+__
 
 create database if not exists rensyu2;
 
@@ -6,10 +10,10 @@ use rensyu2;
 drop table if exists emp;
 
 create table emp (
-  `id`        int auto_increment,
-  `name`      varchar(20),
-  `birthday`  date,
-  `dept`      varchar(20),
+  id        int auto_increment,
+  name      varchar(20),
+  birthday  date,
+  dept      varchar(20),
   primary key (id)
 );
 
