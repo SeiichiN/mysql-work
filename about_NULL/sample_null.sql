@@ -7,21 +7,27 @@ drop table if exists members;
 
 create table members (
   id int primary key auto_increment,
-  name varchar(100),
-  age int,
+  name varchar(100) ,
+  age int not null,
   dept_id char(3)
 );
 
 insert into members
 (name, age)
 values
-('õ’JãÄ‘¾',   33),
-('“ñŠK“°‚Ó‚İ', 24),
-('“n•Ó“N',     NULL),
-('ŒE“c—m‰î',   NULL)\g
+('æŸ“è°·ç¿”å¤ª',   33),
+('äºŒéšå ‚ãµã¿', 24),
+('æ¸¡è¾ºå“²',     NULL),
+('çªªå¡šæ´‹ä»‹',   NULL)\g
+
+insert into members
+(name)
+values
+('å‰é«˜ç”±é‡Œå­')\g
+
 
 
 select * from members;
 
 
--- C³: Mon 2025/03/31 09:17:42
+-- ä¿®æ­£æ™‚åˆ»: Wed 2025/04/02 06:36:51
