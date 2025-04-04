@@ -1,5 +1,5 @@
 --
--- ƒf[ƒ^ƒx[ƒX–¼: book_rental
+-- ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹å: book_rental
 --
 
 CREATE DATABASE IF NOT EXISTS book_rental;
@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS member;
 
 
 --
--- ‘Ğ•\
+-- æ›¸ç±è¡¨
 --
 CREATE TABLE book (
   id     CHAR(5) PRIMARY KEY,
@@ -22,16 +22,16 @@ CREATE TABLE book (
 );
 
 INSERT INTO book VALUES
-('bk001', '‚¢‚â‚¢‚â‚¦‚ñ',     '’†ì—›}q'),
-('bk002', '‚í‚½‚µ‚Æ‚ ‚»‚ñ‚Å', 'ƒGƒbƒc'),
-('bk003', 'ƒGƒ‹ƒ}[‚Ì–`Œ¯',   'ƒKƒlƒbƒg'),
-('bk004', 'ƒQƒhí‹L',         'ƒ‹EƒOƒEƒBƒ“'),
-('bk005', '‚¯‚ñ‚Í‚Ö‚Á‚¿‚á‚ç', '’Jìr‘¾˜Y');
+('bk001', 'ã„ã‚„ã„ã‚„ãˆã‚“',     'ä¸­å·ææå­'),
+('bk002', 'ã‚ãŸã—ã¨ã‚ãã‚“ã§', 'ã‚¨ãƒƒãƒ„'),
+('bk003', 'ã‚¨ãƒ«ãƒãƒ¼ã®å†’é™º',   'ã‚¬ãƒãƒƒãƒˆ'),
+('bk004', 'ã‚²ãƒ‰æˆ¦è¨˜',         'ãƒ«ãƒ»ã‚°ã‚¦ã‚£ãƒ³'),
+('bk005', 'ã‘ã‚“ã¯ã¸ã£ã¡ã‚ƒã‚‰', 'è°·å·ä¿Šå¤ªéƒ');
 
 SELECT * FROM book;
 
 --
--- ‰ïˆõ•\
+-- ä¼šå“¡è¡¨
 --
 CREATE TABLE member (
   id   CHAR(6) PRIMARY KEY,
@@ -39,18 +39,18 @@ CREATE TABLE member (
 );
 
 INSERT INTO member VALUES
-('123456', '‰Y“‡‘¾˜Y'),
-('123457', '‹à‘¾˜Y'),
-('123458', '‚©‚®‚â•P');
+('123456', 'æµ¦å³¶å¤ªéƒ'),
+('123457', 'é‡‘å¤ªéƒ'),
+('123458', 'ã‹ãã‚„å§«');
 
 SELECT * FROM member;
 
 
 --
--- ‘İo•\ rent
+-- è²¸å‡ºè¡¨ rent
 --
 CREATE TABLE rent (
-  id         CHAR(3) PRIMARY KEY,
+  id         INT PRIMARY KEY AUTO_INCREMENT,
   member_id  CHAR(6),
   rent_day   DATE,
   return_day DATE,
@@ -58,53 +58,57 @@ CREATE TABLE rent (
   REFERENCES member (id)
 );
 
-INSERT INTO rent VALUES
-('C01', '123456', '2024/9/30', '2024/10/15'),
-('C02', '123456', '2024/9/18', '2024/10/2' ),
-('C03', '123457', '2024/9/30', '2024/10/15'),
-('C04', '123458', '2024/9/3',  '2024/9/17' );
+INSERT INTO rent
+  (member_id, rent_day, return_day)
+VALUES
+  ('123456', '2024/9/30', '2024/10/15'),
+  ('123456', '2024/9/18', '2024/10/2' ),
+  ('123457', '2024/9/30', '2024/10/15'),
+  ('123458', '2024/9/3',  '2024/9/17' );
 
 SELECT * FROM rent;
 
 --
--- ‘İo‘Ğ•\ rent_book
+-- è²¸å‡ºæ›¸ç±è¡¨ rent_book
 --
 CREATE TABLE rent_book (
-  rent_id CHAR(3),
+  rent_id INT,
   book_id CHAR(5),
   PRIMARY KEY (rent_id, book_id)
 );
 
 ALTER TABLE rent_book
 ADD
-  FOREIGN KEY (rent_id) REFERENCES rent (id),
+  FOREIGN KEY (rent_id) REFERENCES rent (id);
+  
+ALTER TABLE rent_book
 ADD
   FOREIGN KEY (book_id) REFERENCES book (id);
   
 
 INSERT INTO rent_book VALUES
-('C01', 'bk001'),
-('C01', 'bk002'),
-('C02', 'bk003'),
-('C03', 'bk004'),
-('C03', 'bk005'),
-('C04', 'bk001');
+(1, 'bk001'),
+(1, 'bk002'),
+(2, 'bk003'),
+(3, 'bk004'),
+(3, 'bk005'),
+(4, 'bk001');
 
 SELECT * FROM rent_book;
 
 
 --
--- Œ‹‡•\ INNER JOIN
+-- çµåˆè¡¨ INNER JOIN
 --
 SELECT
-  r.id         AS ‘İo•\,
-  m.id         AS ‰ïˆõ”Ô†,
-  m.name       AS ‰ïˆõ–¼,
-  b.id         AS ‘Ğ”Ô†,
-  b.name       AS ‘Ğ–¼,
-  b.author     AS ’˜Ò,
-  r.rent_day   AS ‘İo“ú,
-  r.return_day AS •Ô‹p—\’è“ú
+  r.id         AS è²¸å‡ºè¡¨,
+  m.id         AS ä¼šå“¡ç•ªå·,
+  m.name       AS ä¼šå“¡å,
+  b.id         AS æ›¸ç±ç•ªå·,
+  b.name       AS æ›¸ç±å,
+  b.author     AS è‘—è€…,
+  r.rent_day   AS è²¸å‡ºæ—¥,
+  r.return_day AS è¿”å´äºˆå®šæ—¥
 FROM rent r
   INNER JOIN member m
   ON r.member_id = m.id

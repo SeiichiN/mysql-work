@@ -1,6 +1,6 @@
 
 rent•\
-id         CHAR(3) PRIMARY KEY,
+id         INT PRIMARY KEY AUTO_INCREMENT,
 member_id  CHAR(6),
 rent_day   DATE,
 return_day DATE,
@@ -20,7 +20,7 @@ author VARCHAR(100)
 
 
 rent_book•\
-rent_id CHAR(3),
+rent_id INT,
 book_id CHAR(5),
 PRIMARY KEY (rend_id, book_id),
 
