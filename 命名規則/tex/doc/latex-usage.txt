@@ -1,0 +1,400 @@
+
+やてふでの使い方
+C-c C-b SPC
+
+
+コードを記述
+\begin{lstlisting}[
+  caption=XXXXXXXXX,
+  label=YYYYYYYY,
+  numbers=left(初期値) / none(行番号なし),
+  language=php / java / JavaScript
+  backgroundcolor={\color{white}}
+]
+\usepackage{color}
+\usepackage{listings, plisting}
+
+boxで囲む
+\begin{tcolorbox}  \usepackage{tcolorbox}
+
+\begin{tcolorbox}[
+  breakable,   %% ページまたぎ ON
+  title=処理の順序,
+  fonttitle=\gtfamily,
+  colbacktitle=black,  %% タイトルの背景色
+  coltitle=white,      %% タイトルの文字色
+  colframe=gray,
+  colback=white,        %% 背景色
+  boxrule=1pt]
+
+% mytcolorboxの定義をつくる
+% \begin{document} のあとに記述する
+% タイトルをつけることができるようにした
+\newtcolorbox{mytcolorbox}[1]{
+ title=hantei.php,
+ colbacktitle=white,
+ coltitle=black,
+ colback=white,
+ boxrule=0.3pt,
+ title=#1}
+
+% 使用例
+\begin{mytcolorbox}{タイトル}
+...
+\end{mytcolorbox}
+
+
+そのままで出力
+\begin{verbatim}
+\end{verbatim}
+
+\verb!sonomama!
+
+行番号をつける
+\begin{linenumbers}
+\end{linenumbers}
+
+行番号をリセットする
+\resetlinenumber
+
+行番号を n にリセットする
+\resetlinenumber[n]
+
+右寄せ
+\rightline{text}
+
+中央寄せ
+\centerline{text}
+
+左寄せ
+\leftline{text}
+
+以下の行の先頭を字下げする。
+\setlength{\leftskip}{10mm}
+
+このあと、0mm 戻す必要がある。
+
+
+一部分の行間を調整する   // usepackage{setspace}
+\begin{spacing}{0.7}   // 倍率
+\end{spacing}
+;; TeXでの行間の調整方法
+;; https://qiita.com/ayakix/items/93f90482907d4585ce4c
+
+全角1文字分の空白
+\quad
+
+全角2文字分の空白
+\qquad
+
+小さな空白
+\! -- 負の空白
+\, -- 一番小さい
+\: -- 次に小さい
+\; -- 次に小さい
+
+
+
+表の縦幅を変更する
+\renewcommand{\arraystretch}{2} --- これで2倍の縦幅になる
+
+\begin{tabular}{|l|l|}
+...
+\end{tabular}
+
+\renewcommand{\arraystretch}{1} -- もとにもどしておく
+
+
+
+表の中で２カラム結合する
+\multicolumn{2}{|l|}{ 内容 }
+
+複雑な表の作成
+ \renewcommand{\arraystretch}{2}  %% カラムの高さを2倍
+ \begin{table}[h]
+ \begin{tabular}{|p{5mm}|p{5mm}|p{40mm}|p{5mm}|p{40mm}|}
+ \hline
+   \ajRoman{1}                  & 1    &     & 2     &           \\  \hline
+   \ajRoman{2}                  & 3    & \multicolumn{3}{|l|}{}  \\  \hline
+   \ajRoman{3}                  & 4    & \multicolumn{3}{|l|}{}  \\  \hline
+   \ajRoman{4}                  & 5    & \multicolumn{3}{|l|}{}  \\  \hline
+   \multirow{2}{*}{\ajRoman{5}} & 6    &     & 7     &           \\  \cline{2-5}
+                                & 8    &     & 9     &           \\  \hline
+   \ajRoman{6}                  & 10   &     & 11    &           \\  \hline
+   \multirow{2}{*}{\ajRoman{7}} & 12   &     & 13    &           \\  \cline{2-5}
+                                & 14   & \multicolumn{3}{|c|}{}  \\  \hline
+   \ajRoman{8}                  & 15   & \multicolumn{3}{|l|}{}  \\  \hline
+ \end{tabular}
+ \end{table}
+---
+multirow -- multirow.sty が必要
+
+
+
+\section{セクション名}
+
+
+文書内で他の指定場所にリンクする。;; \usepackage[dvipdfmx]{hyperref}
+\hyperlink{new_proj_next}{次へ}
+\hypertarget{new_proj_next}...(文章）
+
+
+URLリンク
+\href{https://aaaa.bbb.cc/}{表示文字列}
+---------------------------------------
+\usepackage[dvipdfmx]{hyperref} を使う。
+
+参考文献
+\begin{thebibliography}{99}
+ \bibitem 文献
+\end{thebibliography}
+
+
+参考URL
+\documentclass{jsarticle}
+......
+\usepackage{url}
+\usepackage[dvipdfmx]{hyperref}
+......
+\begin{document}
+------------------------------------------------
+\begin{thebibliography}{9}
+\bibitem{greenhouse_effect} 温室効果ガス、気象庁ホームページ \url{http://ds.data.jma.go.jp/ghg/info_ghg.html}
+.....
+\end{thebibliography}
+
+
+四角の枠で囲む
+\fbox{これを囲む}
+
+\framebox[3cm][c]{これを囲む}
+
+"\anaume" と同じ大きさの番号つき空欄を作る
+\framebox[12mm]{ 2 } 
+
+複数行を四角の枠で囲む
+\begin{tabular}{c}
+あいうえお\\
+かきくけこ\\
+さしすせそ\\
+たちつてと
+\end{tabular}
+(http://www002.upp.so-net.ne.jp/latex/waku.html)
+
+
+verbatimを枠で囲む
+\newsavebox{\htmltext}    % 適当に名前をつける
+\setbox\htmltext=\vbox{\hsize 13cm  % 横の長さを指定
+\begin{verbatim}
+<!doctype html>
+<html lang="ja">
+....
+</html>
+\end{verbatim}
+}  % \vboxの終了
+
+\fbox{\usebox{\htmltext}}
+
+脚注
+\footnote{テキスト}   -- 番号は自動でつけられる
+\footnote[番号]{テキスト}
+
+箇条書き
+\begin{itemize}
+ \item XXXXXX
+ \item yyyyyy
+\end{itemize}
+
+箇条書きの記号を変えるには、以下のコマンドを実行してから、\begin{itemize}とする。
+\renewcommand{\labelitemi}{※}
+
+番号つき箇条書き
+\begin{enumerate}
+ \item XXXXXX
+ \item yyyyyy
+\end{enumerate}
+
+番号つき箇条書き a) b) c) ...
+\begin{enumerate}[a)]
+ \item XXXXXX
+ \item yyyyyy
+\end{enumerate}
+ただし、begin.sty で \usepackage{enumerate} が必要
+
+enumerateで行間を調整
+\begin{enumerate}
+ \setlength{\parskip}{2mm}   % 段落間
+ \setlength{\itemsep}{2mm}   % 項目間
+ \item XXXXXX
+ \item yyyyyy
+\end{enumerate}
+
+
+
+番号つき箇条書きで、番号を変える(アルファベットの場合)<== これはいらんやろ
+\renewcommand{\labelenumi}{\alph{enumi}.}
+\begin{enumerate}
+ \item xxxx
+ \item yyyy
+\end{enumerate}
+
+
+見出しを好みの文字列に変える
+\begin{description}
+\item[1番め] xxxx
+\item[2番め] yyyy
+\end{description}
+
+
+見出しつき箇条書き
+\usepackage{enumitem}
+...
+\begin{description}[labelwidth=(一番長い見出しの文字数)em]
+ \item[長い見出し] 文
+ \item[短] 文
+ ...
+ \item[一番長い見出し] 文
+\end{description}
+
+
+画像の表示
+\includegraphics[width=5cm] {xxxxxxx.jpg}
+
+
+< -- \textless
+> -- \textgreater
+
+LaTeXの特殊文字・特別記号
+http://www.ic.daito.ac.jp/~mizutani/tex/special_characters.html
+
+矢印
+$\rightarrow$ -- ->
+$\to$  -- ->
+
+①②などの出力
+\textcircled{\scriptsize 1} ... ① 
+
+文中でローマ数字を使う
+\usepackage{otf}
+---
+\ajRoman{1}
+\afroman{2}
+
+
+ワ濁音　を入力する
+かなモードで \ と入力すると文字コード入力になる。その状態で
+u+30F7
+と入力して<Enter>
+文字コードは
+"V"をワ行の濁音にする|http://newjapanese.blog.jp/archives/7591041.html
+を参照のこと
+また、文字コード入力は
+https://ddskk.readthedocs.io/ja/latest/06_apps.html#id154
+を参照のこと。
+
+
+傍点
+(1) \bou{絶対に}
+(2) \kenten{絶対に}
+参考URL 傍点・傍線 https://hakuoku.github.io/agakuTeX/tutorial/5_3bouten/
+
+
+段組み \usepackage{multicol}
+\begin{multicols}{3}
+ \includegraphics{game7-1.png} \\
+ \includegraphics{game7-2.png} \\
+ \includegraphics{game7-3.png}
+\end{multicols}
+
+段組み \usepackage{vwcol}
+\begin{vwcol}[widths={0.4,0.2,0.5}]
+\end{vwcol}
+
+
+行頭の字下げを一時的に解除
+\noindent
+
+
+行番号をつけるプリアンブル
+\usepackage[left]{lineno}
+行番号をつける
+\linenumbers
+行番号をつけない
+\nolinenumbers
+
+
+穴埋め問題の空欄を自動的につくる
+%\anaumeと入力すると穴埋め解答欄が作れるようにしてる。\anaumesmallで小さめの穴埋めになる。
+\newcounter{mycounter}      % カウンターを作る
+\setcounter{mycounter}{0}    % カウンターを初期化
+\newcommand{\anaume}[1][]{\refstepcounter{mycounter}{#1}{\boxed{\phantom{aa}\themycounter \phantom{aa}}}}    %穴埋め問題の空欄作ってる。
+\newcommand{\anaumesmall}[1][]{\refstepcounter{mycounter}{#1}{\boxed{\tiny{\phantom{a}\themycounter \phantom{a}}}}}     %小さい版作ってる。色々改造できる。
+-------------------------------------------------------------------------------------------
+https://sutasapo.com/2020/03/29/%E3%80%90ipad%E6%B4%BB%E7%94%A8%E3%80%91tex-writer%E3%81%A7%E7%95%AA%E5%8F%B7%E4%BB%98%E3%81%8D%E7%A9%B4%E5%9F%8B%E3%82%81%E5%95%8F%E9%A1%8C%E3%82%92%E4%BD%9C%E3%82%8B%E6%96%B9%E6%B3%95/
+                          
+
+"\anaume" と同じ大きさの番号つき空欄を作る
+\framebox[12mm]{ 2 } 
+
+
+
+qexam.sty - 試験問題用LaTeX スタイルファイル
+http://osksn2.hep.sci.osaka-u.ac.jp/~taku/qexam/
+http://osksn2.hep.sci.osaka-u.ac.jp/~taku/qexam/qexam_doc.pdf
+
+
+欧文フォント
+Cantarell
+https://tug.org/FontCatalogue/cantarell/
+\usepackage[default]{cantarell} %% Use option "defaultsans" to use cantarell as sans serif only
+\usepackage[T1]{fontenc}
+
+
+=================================================================
+複数のファイルに分けるやり方
+
+　まずbegin.tex、end.tex、main.tex、tex1.texを用意します。
+
+「begin.tex」
+---------------------------------------------------------------
+\usepackage{amsmath,amssymb}%読み込ませたいpackageを書いておく
+\title{TITLE}
+\author{AUTHOR}
+\date{\today}
+\begin{document}
+---------------------------------------------------------------
+
+
+「end.tex」
+---------------------------------------------------------------
+\end{document}
+---------------------------------------------------------------
+
+
+「main.tex」
+---------------------------------------------------------------
+\documentclass[a4j]{jreport}
+\input{begin}
+\renewcommand{\include}[1]{}
+\renewcommand\documentclass[2][]{}
+\maketitle
+\tableofcontents
+\input{tex1}
+\input{tex2}
+\input{tex3}
+\input{end}
+---------------------------------------------------------------
+
+
+「tex1.tex」
+---------------------------------------------------------------
+\documentclass[a4j]{jreport}
+\include{begin}
+%ここに本文を書く
+\include{end}
+---------------------------------------------------------------
+
+!!! 参考
+
+*[[Texで複数ファイルと個別ファイルでコンパイルする方法|http://khmtvx.hatenablog.com/entry/2013/08/19/223003]]
+

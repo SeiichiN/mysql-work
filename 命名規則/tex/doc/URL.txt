@@ -1,0 +1,30 @@
+Listings
+https://mytexpert.osdn.jp/index.php?Listings
+
+plistings
+https://github.com/h-kitagawa/plistings
+
+コードブロック内で自動改行する
+https://review-knowledge-ja.readthedocs.io/ja/latest/latex/linebreak-verbatim.html
+
+LaTeXで載せたプログラムソースがページを跨ぐ場合の対処法について
+https://muscle-keisuke.hatenablog.com/entry/2016/02/11/195004
+
+tcolorboxの基本
+http://texmedicine.hatenadiary.jp/entry/2015/12/17/000339
+
+LaTeXの基本的な使い方
+http://www.math.twcu.ac.jp/ogita/lec/latex_basic.pdf
+
+LaTeX 入門
+https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80#hf6bc116
+
+LaTeX入門/図表
+https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80%2F%E5%9B%B3%E8%A1%A8
+
+HTML と LaTeX の共通点
+https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80%2FHTML%E3%81%A8LaTeX%E3%81%AE%E6%AF%94%E8%BC%83
+
+LaTeX入門/最初の例
+https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80%2F%E6%9C%80%E5%88%9D%E3%81%AE%E4%BE%8B
+

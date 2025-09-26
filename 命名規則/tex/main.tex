@@ -1,0 +1,38 @@
+\documentclass[uplatex, dvipdfmx]{jsarticle}
+
+\input{title}
+\input{begin}
+
+\renewcommand{\include}[1]{}
+
+\renewcommand\documentclass[2][]{}
+\renewcommand{\lstlistingname}{リスト}
+
+%% --------- title page ------------------
+% \maketitle
+
+% \pagenumbering{roman}
+% \setcounter{tocdepth}{2}
+% \tableofcontents
+
+% \newpage
+%% --------- title page end --------------
+
+%% -------- title ------------------
+\newcommand{\mytitle}[2]
+{
+\begin{center}
+ {\LARGE\bf #1} #2
+\end{center}
+}
+\mytitle{MySQL 命名規則}{\today}
+%% --------- title end -------------
+\pagenumbering{arabic}
+
+\input{tex1}
+
+
+
+\input{end}
+
+%% 修正時刻： Sat 2025/09/27 07:06:421

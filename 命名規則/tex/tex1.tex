@@ -1,0 +1,56 @@
+\documentclass[uplatex, dvipdfmx]{jsarticle}
+
+\include{begin}
+
+\section{よく使われる命名規則}
+
+\subsection{基本ルール}
+
+\begin{enumerate}
+ \item 英小文字のみを使う
+ \item 単語区切りはアンダースコア (snake\_case)
+ \item 予約語は避ける \\
+       \qquad (例: user, order, group → users, orders, user\_groups)
+\end{enumerate}
+
+\subsection{テーブル名}
+
+\begin{enumerate}
+ \item 複数形 を使う (例: books, authors, orders)
+ \item 集合を表す名前にする (1レコード = 1つの要素)
+\end{enumerate}
+
+\subsection{カラム名}
+
+\begin{enumerate}
+ \item 単数形 を使う (例: title, price, name)
+ \item 主キーは id に統一
+ \item 外部キーは 参照先テーブル名(単数形)\_id \\
+       \qquad (例: author\_id, book\_id)
+ \item 日付・時刻は *\_at \\
+       \qquad (例: created\_at, updated\_at, published\_at)
+ \item 真偽値は is\_* \\
+       \qquad (例: is\_active, is\_deleted)
+\end{enumerate}
+
+\begin{lstlisting}[title=例, language=SQL]
+CREATE TABLE books (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  author_id INT NOT NULL,
+  published_at DATE,
+  is_out BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE authors (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  birth_date DATE
+);
+\end{lstlisting}
+
+
+\include{end}
+
+%% 修正時刻： Sat 2025/09/27 07:06:420
+

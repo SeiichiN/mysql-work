@@ -1,0 +1,75 @@
+
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{color}
+\usepackage{listings, plistings}
+
+%% ノート/latexメモ
+%% http://pepper.is.sci.toho-u.ac.jp/pepper/index.php?%A5%CE%A1%BC%A5%C8%2Flatex%A5%E1%A5%E2
+
+\include{javascript}
+
+% Java
+\lstset{% 
+  frame=single,
+  backgroundcolor={\color[gray]{.9}},
+  stringstyle={\ttfamily \color[rgb]{0,0,1}},
+  commentstyle={\itshape \color[cmyk]{1,0,1,0}},
+  identifierstyle={\ttfamily}, 
+  keywordstyle={\ttfamily \color[cmyk]{0,1,0,0}},
+  basicstyle={\ttfamily},
+  breaklines=true,
+  xleftmargin=0zw,
+  xrightmargin=0zw,
+  framerule=.2pt,
+  columns=[l]{fullflexible},
+  numbers=left,
+  stepnumber=1,
+  numberstyle={\scriptsize},
+  numbersep=1em,
+  language={Java},
+  lineskip=-0.5zw,
+  morecomment={[s][{\color[cmyk]{1,0,0,0}}]{/**}{*/}},
+  keepspaces=true,         % 空白の連続をそのままで
+  showstringspaces=false,  % 空白字をOFF
+}
+%\usepackage[dvipdfmx]{graphicx}
+\usepackage{url}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{itembkbx}
+\usepackage{eclbkbox}	% required for `\breakbox' (yatex added)
+\usepackage[left]{lineno}
+\usepackage{enumerate}
+\usepackage[default]{cantarell}
+\usepackage[T1]{fontenc}
+\fboxrule=0.5pt
+\parindent=1em
+\definecolor{mygrey}{rgb}{0.97, 0.97, 0.97}
+
+\makeatletter
+\def\verbatim@font{\normalfont
+\let\do\do@noligs
+\verbatim@nolig@list}
+\makeatother
+
+\begin{document}
+
+%\anaumeと入力すると穴埋め解答欄が作れるようにしてる。\anaumesmallで小さめの穴埋めになる。
+\newcounter{mycounter} % カウンターを作る
+\setcounter{mycounter}{0} % カウンターを初期化
+\newcommand{\anaume}[1][]{\refstepcounter{mycounter}{#1}{\boxed{\phantom{aa}\textnormal{\themycounter}\phantom{aa}}}} %穴埋め問題の空欄作ってる。
+\newcommand{\anaumesmall}[1][]{\refstepcounter{mycounter}{#1}{\boxed{\tiny{\phantom{a}\themycounter \phantom{a}}}}}%小さい版作ってる。色々改造できる。
+
+\newcommand{\pa}{\phantom{aa}}
+\newcommand{\p}{\phantom{aaaa}}
+
+% --------------------------------------
+\newtcolorbox{mytcolorbox}[1]{
+ colbacktitle=white,
+ coltitle=black,
+ colback=white,
+ boxrule=0.3pt,
+ title=#1}
+
+%% 修正時刻： Tue 2022/03/15 10:04:411

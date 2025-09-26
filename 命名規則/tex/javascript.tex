@@ -1,0 +1,28 @@
+%% JavaScriptの設定
+%% https://e8l.hatenablog.com/entry/2015/11/29/232800
+\lstdefinelanguage{javascript}{
+  morekeywords = [1]{ %keywords
+    await, break, case, catch, class, const, continue, debugger, default, delete, 
+    do, else, enum, export, extends, finally, for, function, function*, if, implements, import, in, 
+    instanceof, interface, let, new, package, private, protected, public, return, static, super,
+    switch, this, throw, try, typeof, var, void, while, with, yield, yield*
+  },
+  morekeywords = [2]{ %literal
+    false, Infinity, NaN, null, true, undefined
+  },
+  morekeywords = [3] { %Classes
+    Array, ArrayBuffer, Boolean, DataView, Date, Error, EvalError, Float32Array, Float64Array,
+    Function, Generator, GeneratorFunction, Int16Array, Int32Array, Int8Array, InternalError,
+    JSON, Map, Math, Number, Object, Promise, Proxy, RangeError, ReferenceError, Reflect,
+    RegExp, Set, String, Symbol, SyntaxError, TypeError, URIError, Uint16Array, Uint32Array,
+    Uint8Array, Uint8ClampedArray, WeakMap, WeakSet
+  },
+  morecomment = [l]{//},
+  morecomment = [s]{/*}{*/},
+  morestring = [b]{"},
+  morestring = [b]{'},
+  alsodigit = {-},
+  sensitive = true
+}
+
+%% 修正時刻: Tue 2022/03/15 10:04:41
