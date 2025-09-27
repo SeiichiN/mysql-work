@@ -17,23 +17,15 @@ insert into members
 values
 ('染谷翔太',   33),
 ('二階堂ふみ', 24),
-('渡辺哲',     NULL),
-('窪塚洋介',   NULL)\g
-
---
--- not null のカラムに NULL をセットしようとしているので、
--- エラーになって、入力に失敗する。
---
+('', 45),
+('窪塚洋介', 0)\g
 
 insert into members
 (name)
 values
 ('吉高由里子')\g
 
---
--- age は NULL が許されないので、
--- 入力に失敗する。
---
+
 
 select * from members;
 
